@@ -1,14 +1,52 @@
-// rafc
-import React from 'react'
+import React, {useState} from 'react'
+const adminCredentials = {userName: "admin", password: "admin"};
 
-export const Login = () => {
+
+interface LoginProps {
+  setLoggedIn: (isLoggedIn: boolean) => void
+}
+
+// In React we have two main types of components: stateless and stateful
+// 1. User types his login and password and clicks login button
+// 2. If the login password combinations is correct, the user is redirected to the character list
+export const Login = ({ setLoggedIn }: LoginProps) => {
+    // Rule 1: we never update the state directly, we always use setState
+    // Rule 2: when state changes, the component re-renders
+    // Rule 3: setState is asynchronous, it doesn't block the execution of the code 
+    // UseState returns an array with two elements: state and the function to update it
+  const [userName, setUserName] = useState("");
+  const [password, setPassword] = useState("");
+  // When we type something in an input, onchange event is triggered
+  // To get the value of the input, we use event.target.value
+  // You can create event handlers two ways: using an anonymous function
+  // or using a named function
+  const usernameHandler = (event: any) => {
+    console.log("Event", event);
+    setUserName(event.target.value);
+  };
+
+  const loginHandler = (event: any) => {
+    if (
+      userName === adminCredentials.userName && 
+      password === adminCredentials.password
+      ) {
+        setLoggedIn(true);
+      } else {
+        setLoggedIn(false);
+      }
+  };
+  console.log("Component rendered with userName: " + userName);
   return (
     <div>
         <label>User name: </label>
-        <input type="text" />
+        <input type="text" value={userName} onChange={usernameHandler} />
         <label>Password: </label>
-        <input type="password" />
-        <button>Login</button>
+        <input 
+          type="password" 
+          value={password} 
+          onChange={(e) => setPassword(e.target.value)} // anonymous function
+        />
+        <button onClick={loginHandler}>Login</button>
     </div>
-  )
-}
+  );
+};
