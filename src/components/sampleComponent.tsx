@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 export const sampleComponent = () => {
     const header = (
@@ -16,10 +16,10 @@ export const sampleComponent = () => {
           // It's required for React to be able to update the element
           <li key={character.name}>
           <h3>{character.name}</h3>
-          <p>{character.health}</p>
-          <p>{character.fraction}</p>
-          <p>{character.weapon}</p>
-          <p>{character.damagePerHit}</p>
+          <p>{character.durability}</p>
+          <p>{character.roles}</p>
+          <p>{character.defense}</p>
+          <p>{character.offense}</p>
         </li>
           );
       };

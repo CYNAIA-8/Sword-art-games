@@ -3,5 +3,6 @@ span {
 }
 
 .character-name {
-    font-weight: bold;
+    font-weight: bolder;
+    font-style: italic;
 }

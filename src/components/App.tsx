@@ -1,8 +1,9 @@
-import './App.css';
+import "./App.css";
 import React, {useState} from "react";
 import { Login } from "./Login/Login";
-import { CharacterList } from './CharacterList/CharacterList';
-import { useFetch } from './hooks/useFetch';
+import { CharacterList } from "./CharacterList/CharacterList";
+import { useFetch } from "./hooks/useFetch";
+import { CharacterSelection } from "./CharacterSelection/CharacterSelection";
 
 // React application can be represented as a tree of React components
 // This is a react root component
@@ -17,8 +18,45 @@ import { useFetch } from './hooks/useFetch';
 
 export const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState (false);
+  const characters = [
+    {
+      name: "Miya",
+      durability: 45,
+      roles: "Marksman",
+      defense: "Silver bow and arrow",
+      offense: 80,
+    },
+    {
+      name: "Balmond",
+      durability: 80,
+      roles: "Fighter",
+      defense: "Battleaxe",
+      offense: 75,
+    },
+    {
+      name: "Saber",
+      durability: 50,
+      roles: "Assassin",
+      defense: "Dual wield swords",
+      offense: 87,
+    },
+    {
+      name: "Alice",
+      durability: 70,
+      roles: "Mage and Tank",
+      defense: "bloods",
+      offense: 50,
+    },
+    {
+      name: "Karina",
+      durability: 48,
+      roles: "Assassin",
+      defense: "Shadow Twinblades",
+      offense: 85,
+    },
+  ];
   const { response, error } = useFetch(
-    "https://jsonplaceholdser.typicode.com/posts"
+    "https://jsonplaceholder.typicode.com/posts"
   );
 
   if (!response) {
@@ -31,19 +69,16 @@ export const App = () => {
     return <>Error: {error.message}</>;
   }
 
-  if (response) {
-    console.log(response);
-  }
-
 const userNotLoggedIn = (
   <h3 className="not-logged-in">
-    Please log in as admin to see character list
+    Please log in as admin to see Heroes list
     </h3>
 );
    return (
     <div className="App">
-     <Login setLoggedIn={setIsLoggedIn}/>
-     {isLoggedIn ? <CharacterList /> : userNotLoggedIn}
+     {!isLoggedIn ? <Login setLoggedIn={setIsLoggedIn} /> : null}
+     {isLoggedIn ? <CharacterList characters={characters}/> : userNotLoggedIn}
+     {isLoggedIn ? <CharacterSelection characters={characters}/> : null}
      </div>
    );
    };
