@@ -5,23 +5,23 @@ import "./CharacterList.css";
 
 // Props are passed to the component via attributes
 export const CharacterList = ({ characters }) => {
-  // returns true if Math.random() is more than 0.5;
+  //returns true if Math.random() is more than 0.5
   return (
     <Table>
-      <TableCaption fontSize={"3xl"} color="orange">Heroes table</TableCaption>
+      <TableCaption>Character table</TableCaption>
       <Thead>
         <Tr>
-          <Th color="black">Name</Th>
-          <Th isNumeric color="black">Durability</Th>
-          <Th color="black">Roles</Th>
-          <Th color="black">Defense</Th>
-          <Th isNumeric color="black">Offense</Th>
+          <Th>Name</Th>
+          <Th isNumeric>Health</Th>
+          <Th>Fraction</Th>
+          <Th>Weapon</Th>
+          <Th isNumeric>Damage Per Hit</Th>
         </Tr>
       </Thead>
       <Tbody>
         {characters.map((character) => (
           <CharacterListItem
-            isHeroes={Math.random() > 0.5}
+            isChampion={Math.random() > 0.5}
             character={character}
           />
         ))}
