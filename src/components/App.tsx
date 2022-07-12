@@ -3,7 +3,7 @@ import { useFetch } from "../hooks/useFetch";
 import "./App.css";
 import { CharactersScreen } from "./screens/CharactersScreen";
 import { Login } from "./Login/Login";
-import { Battleground } from "../Battleground/Battleground";
+import { Battleground } from "./Battleground/Battleground";
 import { Text } from "@chakra-ui/react";
 
 //React application can be represented as a tree of React components
