@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import { Box, Text, Flex } from "@chakra-ui/react";
-import { useInterval } from "../../hooks/useInterval";
+import { useInterval } from "../hooks/useInterval";
 
 export const Battleground = ({ battleCharacters, setWinner, winner }) => {
   const [fighterOne, fighterTwo] = battleCharacters;

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useFetch } from "../hooks/useFetch";
+import { useFetch } from "./hooks/useFetch";
 import "./App.css";
 import { CharactersScreen } from "./screens/CharactersScreen";
 import { Login } from "./Login/Login";
