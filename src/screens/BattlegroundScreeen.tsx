@@ -4,11 +4,10 @@ import { useInterval } from "../hooks/useInterval";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-export const BattlegroundScreen = ({
-  setWinner,
-  winner,
-}) => {
-  const battleCharacters = useSelector((store: any) => store.characters.battleCharacters);
+export const BattlegroundScreen = ({ setWinner, winner }) => {
+  const battleCharacters = useSelector(
+    (store: any) => store.characters.battleCharacters
+  );
   const [fighterOne, fighterTwo] = battleCharacters;
   const [firstAttacks, setFirstAttacks] = useState(false);
   const [secondAttacks, setSecondAttacks] = useState(false);
@@ -16,7 +15,8 @@ export const BattlegroundScreen = ({
   const attacksByFighterTwo = useRef(0);
   const navigate = useNavigate();
 
-  const isLoggedIn = useSelector((store: any) => store.login.isLoggedIn);
+  const isLoggedIn = useSelector((state: any) => state.login.isLoggedIn);
+
   if (!isLoggedIn) {
     navigate("/");
   }
