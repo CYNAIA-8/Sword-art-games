@@ -6,7 +6,7 @@ import { WinnerScreen } from "../screens/WinnerScreen";
 import { LoginScreen } from "../screens/LoginScreen";
 import { BattlegroundScreen } from "../screens/BattlegroundScreeen";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { AddCharacterScreen } from "../screens/AddCaharacterScreen";
+import { AddCharacterScreen } from "../screens/AddCharacterScreen";
 
 //React application can be represented as a tree of React components
 //This is a react root component
